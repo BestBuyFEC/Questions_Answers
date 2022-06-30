@@ -4,11 +4,11 @@ const Question = (props) => {
         <li className="question-list-item">
             <div className="question-answer">
                 <h4 className="question-title">
-                    <span className="v-fw-medium">Q:&nbsp;</span>
+                    <span className="question">Q:&nbsp;</span>
                     <span className="sr-only"></span>
                     {/* need to look at this */}
                     {/* also need to make it so info is added dynamically from database */}
-                    <a data-track="QnA: Single Question Page">{props.questions[0].question}</a>
+                    <a className="question">{props.questions[0].question}</a>
                 </h4>
                 <p className="author">
                     <span className="asked-ago">Asked

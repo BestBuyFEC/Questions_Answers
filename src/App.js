@@ -6,6 +6,9 @@ import styled from 'styled-components';
 import { useRef } from 'react';
 import { ChevronDown } from '@styled-icons/bootstrap';
 import Collapsible from 'react-collapsible';
+import FilterBar from "./FilterBar";
+import LeftButtons from "./components/LeftButtons";
+import BottomButtons from "./components/BottomButtons";
 
 
 
@@ -79,61 +82,28 @@ function App() {
     }
   }
 
+  // const displayQuestionAnswer = () => {
+
+  // }
+
+  console.log(question.length);
+
   return (
     <div className="App">
       <div className="qa-header">
         <Collapsible tabIndex={1} trigger='Questions & Answers' triggerSibling={<DownArrowIcon />} transitionTime={200}>
-          <div className="filter-bar flex">
-            <div className="toggle-container">
-              <label className="switch">
-                <input type="checkbox" />
-                <span className="slider round"></span>
-              </label>
-              <div className="toggle-label">
-                <p>Show only Answered Questions
-                </p>
-              </div>
-            </div>
-            <div className="questions-answers-search">
-              <form action="/" method="GET" className="form">
-                <input type="search" className="search-field" placeholder="Search Questions & Answers" />
-                <span role="presentation"></span>
-                <button className="c-button-unstyled search-button" type="submit" aria-label="Search" title="Search">
-                  <svg aria-hidden="true" role="img" viewBox="0 0 100 100">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m28.15 26.7-7.03-7.02a9.93 9.93 0 1 0-17.6-6.29 9.93 9.93 0 0 0 16.22 7.67l7.03 7.03a.97.97 0 0 0 1.38 0c.38-.38.38-1 0-1.38zM5.48 13.4a7.98 7.98 0 1 1 15.95.02 7.98 7.98 0 0 1-15.95-.02z">
-                    </path>
-                    </svg>
-                  </svg>
-                </button>
-              </form>
-            </div>
-            <div className="sort flex align-items-center">
-              <label className="sort-by-label">Sort by: </label>
-              <div className="options">
-                <select autoComplete="off" className="tb-select" id="sort-selections">
-                  <option defaultValue="MOST-HELPFUL-ANSWERS">Most helpful</option>
-                  <option value="MOST_ANSWERS">Most answers</option>
-                  <option value="MOST_RECENT_QUESTIONS">Most recent questions</option>
-                  <option value="MOST_RECENT_ANSWERS">Most recent answers</option>
-                  <option value="OLDEST_QUESTIONS">Oldest questions</option>
-                </select>
-              </div>
-            </div>
-          </div>
+          <FilterBar />
           <div className="line-break"></div>
           <div className="button-qa-container">
-            <div className="left-buttons">
-              <div className="left-buttons-block">
-              </div>
-              <a className="ask-button left-column-buttons">Ask a Question</a>
-              <a className="see-button left-column-buttons">See all Questions</a>
-            </div>
+            <LeftButtons />
             <div className="questions-answers-container">
               {loading && <div>Loading...</div>}
               {question && user && <Question questions={question} users={user} />}
               {answer && user && <Answer answers={answer} users={user} />}
             </div>
           </div>
+          <div className="line-break"></div>
+          <BottomButtons />
         </Collapsible>
       </div>
     </div>
