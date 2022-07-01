@@ -4,7 +4,7 @@ const db = require("./database/conn");
 const app = express();
 const cors = require('cors');
 
-const PORT = process.env.PORT || 3041;
+const PORT = process.env.PORT || 5555;
 
 app.use(express.static("public"));
 app.use(express.json());

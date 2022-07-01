@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { useRef } from 'react';
 import { ChevronDown } from '@styled-icons/bootstrap';
 import Collapsible from 'react-collapsible';
-import FilterBar from "./FilterBar";
+import FilterBar from "./components/FilterBar";
 import LeftButtons from "./components/LeftButtons";
 import BottomButtons from "./components/BottomButtons";
 
@@ -28,7 +28,7 @@ function App() {
   const fetchAnswers = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/answers');
+      const response = await fetch('http://localhost:3042/answers');
       if (!response.ok) {
         throw new Error(
           `This is an HTTP error: The status is ${response.status}`
@@ -47,7 +47,7 @@ function App() {
   // const fetchQuestions = async () => {
   //   setLoading(true);
   //   try {
-  //     const response = await fetch('http://localhost:3000/questions');
+  //     const response = await fetch('http://localhost:3042/questions');
   //     if (!response.ok) {
   //       throw new Error(
   //         `This is an HTTP error: The status is ${response.status}`
@@ -66,7 +66,7 @@ function App() {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/users');
+      const response = await fetch('http://localhost:3042/users');
       if (!response.ok) {
         throw new Error(
           `This is an HTTP error: The status is ${response.status}`
@@ -85,7 +85,7 @@ function App() {
   const fetchQuestions = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/userquestion/join');
+      const response = await fetch('http://localhost:3042/userquestion/join');
       if (!response.ok) {
         throw new Error(
           `This is an HTTP error: The status is ${response.status}`
@@ -100,6 +100,17 @@ function App() {
       setUser(null);
     }
   }
+
+  // function getAnswers() {
+  //   if (question) {
+  //     let filteredAnswers = question.filter((a) => {
+  //       return a.question_id === question.question;
+  //     }).map((a) => {
+  //       return a.answer;
+  //     })
+  //   }
+  // }
+
 
 
   return (
