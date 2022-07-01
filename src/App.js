@@ -44,24 +44,24 @@ function App() {
     }
   }
 
-  const fetchQuestions = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch('http://localhost:3000/questions');
-      if (!response.ok) {
-        throw new Error(
-          `This is an HTTP error: The status is ${response.status}`
-        );
-      }
-      let actualData = await response.json();
-      setLoading(false);
-      setQuestion(actualData);
-      setError(null);
-    } catch (error) {
-      setError(error.message);
-      setQuestion(null);
-    }
-  }
+  // const fetchQuestions = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await fetch('http://localhost:3000/questions');
+  //     if (!response.ok) {
+  //       throw new Error(
+  //         `This is an HTTP error: The status is ${response.status}`
+  //       );
+  //     }
+  //     let actualData = await response.json();
+  //     setLoading(false);
+  //     setQuestion(actualData);
+  //     setError(null);
+  //   } catch (error) {
+  //     setError(error.message);
+  //     setQuestion(null);
+  //   }
+  // }
 
   const fetchUsers = async () => {
     setLoading(true);
@@ -82,11 +82,25 @@ function App() {
     }
   }
 
-  // const displayQuestionAnswer = () => {
+  const fetchQuestions = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('http://localhost:3000/userquestion/join');
+      if (!response.ok) {
+        throw new Error(
+          `This is an HTTP error: The status is ${response.status}`
+        );
+      }
+      let actualData = await response.json();
+      setLoading(false);
+      setQuestion(actualData);
+      setError(null);
+    } catch (error) {
+      setError(error.message);
+      setUser(null);
+    }
+  }
 
-  // }
-
-  console.log(question.length);
 
   return (
     <div className="App">
@@ -98,8 +112,14 @@ function App() {
             <LeftButtons />
             <div className="questions-answers-container">
               {loading && <div>Loading...</div>}
-              {question && user && <Question questions={question} users={user} />}
-              {answer && user && <Answer answers={answer} users={user} />}
+              {question && user && answer && question.map((q) => (
+                <>
+                  <Question question={q.question} author={q.username} key={q.userID} />
+                  <Answer answers={answer} users={user} key={q.userID} />
+                </>
+              ))}
+              {/* {question && user && <Question questions={question} users={user} />} */}
+              {/* {answer && user && <Answer answers={answer} users={user} />} */}
             </div>
           </div>
           <div className="line-break"></div>
