@@ -114,9 +114,9 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="questions_and_answers">
       <div className="qa-header">
-        <Collapsible tabIndex={1} trigger='Questions & Answers' triggerSibling={<DownArrowIcon />} transitionTime={200}>
+        <Collapsible className="qaCollapsible" tabIndex={1} trigger='Questions & Answers' triggerSibling={<DownArrowIcon />} transitionTime={200}>
           <FilterBar />
           <div className="line-break"></div>
           <div className="button-qa-container">

@@ -222,15 +222,15 @@ input:checked+.slider:before {
   object-fit: cover;
 }
 
-.Collapsible {
+/* .Collapsible {
   height: 50px;
   margin-left: 90px;
   margin-right: 90px;
   min-width: 1050px;
   justify-content: center;
-}
+} */
 
-.Collapsible__trigger {
+/* .Collapsible__trigger {
   padding-top: 10px;
   padding-bottom: 25px;
   padding-right: 1100px;
@@ -238,32 +238,36 @@ input:checked+.slider:before {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
-}
+} */
 
-.Collapsible svg {
+/* .Collapsible svg {
   padding-top: 20;
-}
+} */
 
-.Collapsible svg:hover {
+/* .Collapsible svg:hover {
   cursor: pointer;
-}
+} */
 
-.Collapsible__contentInner {
+/* .Collapsible__contentInner {
   max-height: fit-content;
-}
+} */
 
-.Collapsible__contentOuter {
+/* .Collapsible__contentOuter {
   border-bottom: 1px solid lightgray;
   padding-top: 20px;
-}
+} */
 
 
-.Collapsible__trigger:hover {
+/* .Collapsible__trigger:hover {
   cursor: pointer;
-}
+} */
 
-.Collapsible__trigger svg.is-open {
+/* .Collapsible__trigger svg.is-open {
   transform: rotateZ(180deg);
+} */
+
+.qaCollapsible {
+  border-bottom: 1px solid lightgray;
 }
 
 .author {
